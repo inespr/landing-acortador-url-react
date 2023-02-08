@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+$primaryCyan: hsl(180, 66%, 49%);
+$primaryViolet: hsl(257, 27%, 26%);
+$secondaryRed: hsl(0, 87%, 67%);
+$gray: hsl(0, 0%, 75%);
+$grayisViolet: hsl(257, 7%, 63%);
+$darkBlue: hsl(255, 11%, 22%);
+$DarkViolet: hsl(260, 8%, 14%);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    color: $grayisViolet;
+}
+
+body{
+    margin: 20px 50px;
+}
+
+.button--decoration{
+    background-color: $primaryCyan;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: 700;
+    &:active{
+        background-color:hsla(180, 66%, 49%, 0.582);
+    }
+}
+.button--action{
+    background-color: $primaryCyan;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 700;
+    &:active{
+        background-color:hsla(180, 66%, 49%, 0.582);
+    }
+}
+
+a{
+    font-weight: 700;
+    &:active{
+        color: black;
+    }
+
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.first--nav{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+}
+
+.second--nav{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+}
+
