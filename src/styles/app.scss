@@ -17,8 +17,9 @@ $DarkViolet: hsl(260, 8%, 14%);
     color: $grayisViolet;
 }
 
+
 body{
-    margin: 40px 150px;
+    margin: 40px;
 }
 
 .button--decoration{
@@ -75,30 +76,31 @@ a{
 .header{
     display: flex;
     align-items: center;
-    margin-top: 150px;    
+    margin-top: 150px;
+    background-color: white;    
 
-.image--header{
-    display: flex;
-    width: 50%;
-    position: absolute;
-    right: -60px;
-    top: 150px;
-}
+    .image--header{
+        display: flex;
+        width: 50%;
+        position: absolute;
+        right: -60px;
+        top: 150px;
+    }
 
-.text--header{
-    width: 50%;
-    h1{
-        color: $DarkViolet;
-        font-size: 80px;
-        line-height: 90px;
+    .text--header{
+        width: 50%;
+        h1{
+            color: $DarkViolet;
+            font-size: 80px;
+            line-height: 90px;
+        }
+        .button--decoration{
+            margin-top: 40px;
+            font-size: 22px;
+            padding: 10px 30px;
+        }
+        p{
+            font-size: 22px;
+        }
     }
-    .button--decoration{
-        margin-top: 40px;
-        font-size: 22px;
-        padding: 10px 30px;
-    }
-    p{
-        font-size: 22px;
-    }
-}
 }

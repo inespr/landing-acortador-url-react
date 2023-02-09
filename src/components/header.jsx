@@ -5,7 +5,9 @@ import { ReactComponent as WorkingImage } from '../images/WorkingImage.svg'
 export function Header(props){
     return <>
         <Nav/>
+
         <div className="header">
+
             <div className="text--header">
                 <h1>
                     More than just shorter links
