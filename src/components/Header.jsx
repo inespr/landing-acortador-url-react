@@ -3,7 +3,8 @@ import { ButtonDecoration } from "./ButtonDecoration"
 import { ReactComponent as WorkingImage } from '../images/WorkingImage.svg'
 
 export function Header(props){
-    return <>
+    return (
+    <>
         <Nav/>
 
         <div className="header">
@@ -21,5 +22,6 @@ export function Header(props){
             </div>
         </div>
     </>
+    )
 
 }
