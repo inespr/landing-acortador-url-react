@@ -7,11 +7,10 @@ export function Header(props){
         <Nav/>
 
         <div className="header">
-
             <div className="text--header">
-                <h1>
+                <span>
                     More than just shorter links
-                </h1>
+                </span>
                 <p>
                     Bluild your brand's recognition and get detailed insights on how your links are performing.
                 </p>

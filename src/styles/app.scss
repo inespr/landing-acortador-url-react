@@ -15,18 +15,22 @@ $DarkViolet: hsl(260, 8%, 14%);
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     color: $grayisViolet;
+    
 }
 
 
 body{
-    margin: 40px;
+    max-width: 1010px;
+    padding: 40px 0 40px 0;
+    margin: 0 auto;
+    overflow-x:hidden
 }
 
 .button--decoration{
     background-color: $primaryCyan;
     color: white;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     padding: 10px 20px;
     font-weight: 700;
     &:active{
@@ -50,7 +54,7 @@ a{
     &:active{
         color: $DarkViolet;
     }
-
+    text-decoration: none;
 }
 
 .nav{
@@ -75,24 +79,26 @@ a{
 
 .header{
     display: flex;
-    align-items: center;
-    margin-top: 150px;
-    background-color: white;    
+    margin-top: 160px;
+    background-color: white;
 
     .image--header{
-        display: flex;
-        width: 50%;
-        position: absolute;
-        right: -60px;
-        top: 150px;
+        flex: 2 2 8%;
+        svg{
+            position: absolute;
+            right: -93px;
+            top: 121px
+        }
     }
-
     .text--header{
-        width: 50%;
-        h1{
+        flex: 2 2 18%;
+        span{
             color: $DarkViolet;
-            font-size: 80px;
-            line-height: 90px;
+            font-size: 76px;
+            line-height: 80px;
+            font-weight: 900;
+            word-spacing: -5px;
+            
         }
         .button--decoration{
             margin-top: 40px;
@@ -100,7 +106,7 @@ a{
             padding: 10px 30px;
         }
         p{
-            font-size: 22px;
+            font-size: 20px;
         }
     }
 }
