@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 $primaryCyan: hsl(180, 66%, 49%);
+$primaryCyanT: hsl(180, 57%, 75%);
 $primaryViolet: hsl(257, 27%, 26%);
 $secondaryRed: hsl(0, 87%, 67%);
 $gray: hsl(0, 0%, 75%);
@@ -36,7 +37,8 @@ body{
     padding: 10px 20px;
     font-weight: 700;
     &:active{
-        background-color:hsla(180, 66%, 49%, 0.582);
+        background-color: $primaryCyanT;
+        
     }
 }
 .button--action{
@@ -47,7 +49,7 @@ body{
     padding: 10px 20px;
     font-weight: 700;
     &:active{
-        background-color:hsla(180, 66%, 49%, 0.582);
+        background-color: $primaryCyanT;
     }
 }
 
@@ -119,8 +121,7 @@ a{
     background-color: $primaryViolet;
     background-image: url('../images/bg-shorten-desktop.svg');
     width: 1010px;
-    position: relative;
-    top: 100px;
+    margin-top: 100px;
     height: 130px;
     border-radius: 10px;
     justify-content: center;
@@ -133,12 +134,22 @@ a{
         border-radius: 10px;
         border: none;
         width: 700px;
+        color: $DarkViolet;
+        padding-left: 20px;
         &::placeholder{
             color: $gray;
-            padding-left: 20px;
         }
     }
     .button--action{
         font-size: 22px;
+    }
+
+    .cards{
+        display: flex;
+        flex-direction: row;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
     }
 }

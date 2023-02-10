@@ -15,7 +15,7 @@ export function Header(props){
                 <p>
                     Bluild your brand's recognition and get detailed insights on how your links are performing.
                 </p>
-                <ButtonDecoration text='Get Started'/>
+                <ButtonDecoration text='Get Started' />
             </div>
             <div className="image--header">
                 <WorkingImage/>
