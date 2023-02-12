@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 $primaryCyan: hsl(180, 66%, 49%);
 $primaryCyanT: hsl(180, 57%, 75%);
@@ -8,7 +9,7 @@ $gray: hsl(0, 0%, 75%);
 $grayisViolet: hsl(257, 7%, 63%);
 $darkBlue: hsl(255, 11%, 22%);
 $DarkViolet: hsl(260, 8%, 14%);
-
+$whitegray: #f0f1f6;
 
 * {
     padding: 0;
@@ -22,10 +23,14 @@ $DarkViolet: hsl(260, 8%, 14%);
 
 
 body{
-    max-width: 1010px;
-    padding: 30px 0 30px 0;
-    margin: 0 auto;
     overflow-x:hidden;
+    background: linear-gradient(white 50%, $whitegray 50%);
+}
+
+.App{
+    max-width: 1400px;
+    padding: 40px 130px 40px 130px;
+    margin: 0 auto;
 }
 
 .button--decoration{
@@ -91,19 +96,20 @@ a{
         
         svg{
             position: absolute;
-            right: -93px;
-            top: 121px
+            right: -89px;
+            top: 151px;
         }
     }
     .text--header{
-        flex: 2 2 18%;
+        flex: 2 2 3%;
         span{
             color: $DarkViolet;
             font-size: 76px;
             line-height: 80px;
-            font-weight: 900;
+            font-weight: 700;
             word-spacing: -5px;
-            
+            letter-spacing: -2px;
+
         }
         .button--decoration{
             margin-top: 40px;
@@ -116,13 +122,18 @@ a{
     }
 }
 
+.sectionform{
+    display: flex;
+    justify-content: center;
+}
+
 .sendform{
     display: flex;
     background-color: $primaryViolet;
     background-image: url('../images/bg-shorten-desktop.svg');
     width: 1010px;
-    margin-top: 100px;
-    height: 130px;
+    margin-top: 140px;
+    height: 140px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
@@ -143,13 +154,68 @@ a{
     .button--action{
         font-size: 22px;
     }
+    
+}
 
-    .cards{
-        display: flex;
-        flex-direction: row;
+.statistics__title{
+    display: flex;
+    color: $DarkViolet;
+    font-weight: 900;
+    letter-spacing: -2px;
+    font-size: 40px;
+    justify-content: center;
+    padding: 120px 0 10px 0;
+    
+}
+
+.statistics__description{
+    display: flex;
+    justify-content: center;
+}
+
+.statistics__cards{
+    display: flex;
+    background-color: $whitegray;
+    padding-top: 100px;
+    gap: 32px;
+ 
+    
+}
+
+.card{
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 31px 31px 31px;
+    &:nth-child(2){
+        position: relative;
+        top: 40px;
     }
-    .card{
-        display: flex;
-        flex-direction: column;
+    &:nth-child(3){
+        position: relative;
+        top: 80px;
     }
+
+}
+
+.card__title{
+    color: $DarkViolet;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    padding-bottom: 15px;
+}
+
+.card__text{
+    font-size: 16px;
+}
+
+.card__img__container{
+    display: flex;
+    background-color: hsl(257deg, 27%, 26%);
+    border-radius: 50%;
+    padding: 25px;
+    position: relative;
+    top: -45px;
 }

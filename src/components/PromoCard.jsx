@@ -1,8 +1,9 @@
-export function PromoCard(props){
+export function PromoCard({img, title, text}){
     return(
         <div className="card">
-            <img></img>
-            {props.text}
+            <div className="card__img__container"><img className="card__img" src={img}></img></div>
+            <p className="card__title">{title}</p>
+            <p className="card__text">{text}</p>
         </div>
     )
 }
