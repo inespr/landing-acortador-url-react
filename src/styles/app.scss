@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 $primaryCyan: hsl(180, 66%, 49%);
 $primaryCyanT: hsl(180, 57%, 75%);
@@ -10,6 +8,7 @@ $grayisViolet: hsl(257, 7%, 63%);
 $darkBlue: hsl(255, 11%, 22%);
 $DarkViolet: hsl(260, 8%, 14%);
 $whitegray: #f0f1f6;
+
 
 * {
     padding: 0;
@@ -24,14 +23,8 @@ $whitegray: #f0f1f6;
 
 body{
     overflow-x:hidden;
-    background: linear-gradient(white 50%, $whitegray 50%);
 }
 
-.App{
-    max-width: 1400px;
-    padding: 40px 130px 40px 130px;
-    margin: 0 auto;
-}
 
 .button--decoration{
     background-color: $primaryCyan;
@@ -86,6 +79,17 @@ a{
 
 }
 
+.sectionheader__wrapper{
+    background-color: white;
+
+}
+
+.sectionheader{
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 40px 130px 140px 130px;
+}
+
 .header{
     display: flex;
     margin-top: 160px;
@@ -122,7 +126,13 @@ a{
     }
 }
 
+.sectionform__wrapper{
+    background: linear-gradient( white 50%, $whitegray 50% );
+}
+
 .sectionform{
+    margin: 0 auto;
+    max-width: 1440px;
     display: flex;
     justify-content: center;
 }
@@ -132,7 +142,6 @@ a{
     background-color: $primaryViolet;
     background-image: url('../images/bg-shorten-desktop.svg');
     width: 1010px;
-    margin-top: 140px;
     height: 140px;
     border-radius: 10px;
     justify-content: center;
@@ -157,6 +166,17 @@ a{
     
 }
 
+.sectionstatistics__wrapper{
+    background-color: $whitegray;
+ 
+}
+
+.sectionstatistics{
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 40px 130px 40px 130px;
+}
+
 .statistics__title{
     display: flex;
     color: $DarkViolet;
@@ -176,28 +196,50 @@ a{
 .statistics__cards{
     display: flex;
     background-color: $whitegray;
-    padding-top: 100px;
+    padding: 100px 0px 100px 0px;
     gap: 32px;
- 
-    
+   
 }
+
 
 .card{
     display: flex;
     background-color: white;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 5px;
     padding: 0px 31px 31px 31px;
     &:nth-child(2){
         position: relative;
         top: 40px;
+        &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 31px;
+            top: 120px;
+            background-color: $primaryCyan;
+            right: 384px;
+        } 
+   
     }
     &:nth-child(3){
         position: relative;
         top: 80px;
+        &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 31px;
+            background-color: $primaryCyan;
+            top: 80px;
+            right: 356px;
+        } 
     }
-
+    
 }
+
+  
 
 .card__title{
     color: $DarkViolet;
@@ -218,4 +260,65 @@ a{
     padding: 25px;
     position: relative;
     top: -45px;
+}
+
+.sectionfooter__wrapper{
+    background-color: $whitegray;
+    margin: 0 auto;
+    max-width: 1440px;   
+}
+
+.sectionfooter{
+    display: flex;
+    padding-left: 0px;
+    flex-direction: column;
+    width: max-content;
+
+}
+
+.footer__first{
+    background-image: url('../images/bg-boost-desktop.svg');
+    transform: scale(1.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 1440px;
+    height: 250px;
+    background-color: $primaryViolet;
+    
+}
+
+.footerfirst__title{
+    color: $whitegray ;
+    font-weight: 900;
+    letter-spacing: -2px;
+    font-size: 40px;
+}
+.footer__second{
+    display: flex;
+    flex-direction: row;
+    background-color: $DarkViolet;
+    transform: scale(1.1);
+    width: 1440px;
+    height: 250px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    h3{
+        color: $whitegray;
+    }
+    li{
+        list-style-type: none;
+    }
+    a{
+        font-size: 13px;
+        font-weight: 500;
+        &:active{
+            color: $primaryCyan;
+        }
+    }
+
 }
