@@ -1,5 +1,10 @@
 import { ButtonDecoration } from "./ButtonDecoration";
-import {ReactComponent as Logo}  from "../images/Logo.svg"
+import {ReactComponent as Logo}  from "../images/Logo.svg";
+import {ReactComponent as IconFacebook} from "../images/IconFacebook.svg";
+import {ReactComponent as IconTwitter} from "../images/IconTwitter.svg";
+import {ReactComponent as IconPinterest} from "../images/IconPinterest.svg";
+import {ReactComponent as IconInstagram} from "../images/IconInstagram.svg";
+
 export function Footer(props) {
     return(
         <>
@@ -59,7 +64,18 @@ export function Footer(props) {
                     </ul>
                 </section>
                 <section className="footer_socialmedia">
-                    
+                    <div className="icon">
+                    <IconFacebook/>
+                    </div>
+                    <div className="icon">
+                    <IconTwitter/>
+                    </div>
+                    <div className="icon">
+                    <IconPinterest/>
+                    </div>
+                    <div className="icon">
+                    <IconInstagram/>
+                    </div>
                 </section>
             </div>
         </>   

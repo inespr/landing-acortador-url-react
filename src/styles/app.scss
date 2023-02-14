@@ -320,5 +320,10 @@ a{
             color: $primaryCyan;
         }
     }
+    .footer_socialmedia{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
 
 }
