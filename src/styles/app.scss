@@ -17,7 +17,6 @@ $whitegray: #f0f1f6;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     color: $grayisViolet;
-    
 }
 
 
@@ -86,14 +85,16 @@ a{
 
 .sectionheader{
     margin: 0 auto;
-    max-width: 1440px;
-    padding: 40px 130px 140px 130px;
+    max-width: 1110px;
+    padding-top: 40px;
+    padding-bottom: 180px;
 }
 
 .header{
     display: flex;
     margin-top: 160px;
     background-color: white;
+
 
     .image--header{
         flex: 2 2 8%;
@@ -132,16 +133,24 @@ a{
 
 .sectionform{
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1110px;
     display: flex;
     justify-content: center;
+}
+
+.memoformsearch{
+    margin: 0 auto;
+    max-width: 1110px;
+    display: flex;
+    justify-content: center;
+    background-color: #f0f1f6;
 }
 
 .sendform{
     display: flex;
     background-color: $primaryViolet;
     background-image: url('../images/bg-shorten-desktop.svg');
-    width: 1010px;
+    width: 1110px;
     height: 140px;
     border-radius: 10px;
     justify-content: center;
@@ -173,8 +182,8 @@ a{
 
 .sectionstatistics{
     margin: 0 auto;
-    max-width: 1440px;
-    padding: 40px 130px 40px 130px;
+    max-width: 1110px;
+    padding-bottom: 80px;
 }
 
 .statistics__title{
@@ -201,45 +210,39 @@ a{
    
 }
 
-
 .card{
     display: flex;
+    position: relative;
     background-color: white;
     flex-direction: column;
+    height: 100%;
     align-items: flex-start;
     border-radius: 5px;
     padding: 0px 31px 31px 31px;
-    &:nth-child(2){
-        position: relative;
+    &:not(:nth-child(1)){
+        &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 31px;
+            background-color: $primaryCyan;
+            left: -31px;
+        } 
+    } &:nth-child(2){
         top: 40px;
         &::before{
-            content: '';
-            position: absolute;
-            height: 10px;
-            width: 31px;
             top: 120px;
-            background-color: $primaryCyan;
-            right: 384px;
         } 
-   
     }
     &:nth-child(3){
-        position: relative;
         top: 80px;
         &::before{
-            content: '';
-            position: absolute;
-            height: 10px;
-            width: 31px;
-            background-color: $primaryCyan;
             top: 80px;
-            right: 356px;
         } 
     }
     
 }
 
-  
 
 .card__title{
     color: $DarkViolet;
@@ -278,7 +281,6 @@ a{
 
 .footer__first{
     background-image: url('../images/bg-boost-desktop.svg');
-    transform: scale(1.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -300,8 +302,6 @@ a{
     display: flex;
     flex-direction: row;
     background-color: $DarkViolet;
-    transform: scale(1.1);
-    width: 1440px;
     height: 250px;
     align-items: flex-start;
     justify-content: space-evenly;
@@ -326,4 +326,10 @@ a{
         gap: 20px;
     }
 
+}
+
+.icon{
+    &:active{
+        fill: $primaryCyan;
+    }
 }
