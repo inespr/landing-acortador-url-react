@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 $primaryCyan: hsl(180, 66%, 49%);
+$primaryCyanT: hsl(180, 57%, 75%);
 $primaryViolet: hsl(257, 27%, 26%);
 $secondaryRed: hsl(0, 87%, 67%);
 $gray: hsl(0, 0%, 75%);
 $grayisViolet: hsl(257, 7%, 63%);
 $darkBlue: hsl(255, 11%, 22%);
 $DarkViolet: hsl(260, 8%, 14%);
+$whitegray: #f0f1f6;
+
 
 * {
     padding: 0;
@@ -15,22 +17,26 @@ $DarkViolet: hsl(260, 8%, 14%);
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     color: $grayisViolet;
+    
 }
 
 
 body{
-    margin: 40px;
+    overflow-x:hidden;
 }
+
 
 .button--decoration{
     background-color: $primaryCyan;
     color: white;
+    white-space: nowrap;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     padding: 10px 20px;
     font-weight: 700;
     &:active{
-        background-color:hsla(180, 66%, 49%, 0.582);
+        background-color: $primaryCyanT;
+        
     }
 }
 .button--action{
@@ -41,7 +47,7 @@ body{
     padding: 10px 20px;
     font-weight: 700;
     &:active{
-        background-color:hsla(180, 66%, 49%, 0.582);
+        background-color: $primaryCyanT;
     }
 }
 
@@ -50,7 +56,7 @@ a{
     &:active{
         color: $DarkViolet;
     }
-
+    text-decoration: none;
 }
 
 .nav{
@@ -73,26 +79,41 @@ a{
 
 }
 
+.sectionheader__wrapper{
+    background-color: white;
+
+}
+
+.sectionheader{
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 40px 130px 140px 130px;
+}
+
 .header{
     display: flex;
-    align-items: center;
-    margin-top: 150px;
-    background-color: white;    
+    margin-top: 160px;
+    background-color: white;
 
     .image--header{
-        display: flex;
-        width: 50%;
-        position: absolute;
-        right: -60px;
-        top: 150px;
+        flex: 2 2 8%;
+        
+        svg{
+            position: absolute;
+            right: -89px;
+            top: 151px;
+        }
     }
-
     .text--header{
-        width: 50%;
-        h1{
+        flex: 2 2 3%;
+        span{
             color: $DarkViolet;
-            font-size: 80px;
-            line-height: 90px;
+            font-size: 76px;
+            line-height: 80px;
+            font-weight: 700;
+            word-spacing: -5px;
+            letter-spacing: -2px;
+
         }
         .button--decoration{
             margin-top: 40px;
@@ -100,7 +121,209 @@ a{
             padding: 10px 30px;
         }
         p{
-            font-size: 22px;
+            font-size: 20px;
         }
     }
+}
+
+.sectionform__wrapper{
+    background: linear-gradient( white 50%, $whitegray 50% );
+}
+
+.sectionform{
+    margin: 0 auto;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+}
+
+.sendform{
+    display: flex;
+    background-color: $primaryViolet;
+    background-image: url('../images/bg-shorten-desktop.svg');
+    width: 1010px;
+    height: 140px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    form{
+        display: flex;
+        gap: 20px;
+    }
+    input{
+        border-radius: 10px;
+        border: none;
+        width: 700px;
+        color: $DarkViolet;
+        padding-left: 20px;
+        &::placeholder{
+            color: $gray;
+        }
+    }
+    .button--action{
+        font-size: 22px;
+    }
+    
+}
+
+.sectionstatistics__wrapper{
+    background-color: $whitegray;
+ 
+}
+
+.sectionstatistics{
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 40px 130px 40px 130px;
+}
+
+.statistics__title{
+    display: flex;
+    color: $DarkViolet;
+    font-weight: 900;
+    letter-spacing: -2px;
+    font-size: 40px;
+    justify-content: center;
+    padding: 120px 0 10px 0;
+    
+}
+
+.statistics__description{
+    display: flex;
+    justify-content: center;
+}
+
+.statistics__cards{
+    display: flex;
+    background-color: $whitegray;
+    padding: 100px 0px 100px 0px;
+    gap: 32px;
+   
+}
+
+
+.card{
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 0px 31px 31px 31px;
+    &:nth-child(2){
+        position: relative;
+        top: 40px;
+        &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 31px;
+            top: 120px;
+            background-color: $primaryCyan;
+            right: 384px;
+        } 
+   
+    }
+    &:nth-child(3){
+        position: relative;
+        top: 80px;
+        &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 31px;
+            background-color: $primaryCyan;
+            top: 80px;
+            right: 356px;
+        } 
+    }
+    
+}
+
+  
+
+.card__title{
+    color: $DarkViolet;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    padding-bottom: 15px;
+}
+
+.card__text{
+    font-size: 16px;
+}
+
+.card__img__container{
+    display: flex;
+    background-color: hsl(257deg, 27%, 26%);
+    border-radius: 50%;
+    padding: 25px;
+    position: relative;
+    top: -45px;
+}
+
+.sectionfooter__wrapper{
+    background-color: $whitegray;
+    margin: 0 auto;
+    max-width: 1440px;   
+}
+
+.sectionfooter{
+    display: flex;
+    padding-left: 0px;
+    flex-direction: column;
+    width: max-content;
+
+}
+
+.footer__first{
+    background-image: url('../images/bg-boost-desktop.svg');
+    transform: scale(1.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 1440px;
+    height: 250px;
+    background-color: $primaryViolet;
+    
+}
+
+.footerfirst__title{
+    color: $whitegray ;
+    font-weight: 900;
+    letter-spacing: -2px;
+    font-size: 40px;
+}
+.footer__second{
+    display: flex;
+    flex-direction: row;
+    background-color: $DarkViolet;
+    transform: scale(1.1);
+    width: 1440px;
+    height: 250px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+    h3{
+        color: $whitegray;
+    }
+    li{
+        list-style-type: none;
+    }
+    a{
+        font-size: 13px;
+        font-weight: 500;
+        &:active{
+            color: $primaryCyan;
+        }
+    }
+    .footer_socialmedia{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
 }
