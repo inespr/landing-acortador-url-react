@@ -65,16 +65,16 @@ export function Footer(props) {
                 </section>
                 <section className="footer_socialmedia">
                     <div className="icon">
-                        <img src={IconFacebook} alt="Facebook"></img>
+                        <img src={IconFacebook} alt="Facebook"/>
                     </div>
                     <div className="icon">
-                        <img src={IconTwitter} alt="Facebook"></img>
+                        <img src={IconTwitter} alt="Facebook"/>
                     </div>
                     <div className="icon">
-                        <img src={IconPinterest} alt="Facebook"></img>
+                       <img src={IconPinterest} alt="Facebook"/>
                     </div>
                     <div className="icon">
-                        <img src={IconInstagram} alt="Facebook"></img>
+                        <img src={IconInstagram} alt="Facebook"/>
                     </div>
                 </section>
             </div>
