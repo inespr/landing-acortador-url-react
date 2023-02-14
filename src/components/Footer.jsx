@@ -1,9 +1,9 @@
 import { ButtonDecoration } from "./ButtonDecoration";
-import {ReactComponent as Logo}  from "../images/Logo.svg";
-import {ReactComponent as IconFacebook} from "../images/IconFacebook.svg";
-import {ReactComponent as IconTwitter} from "../images/IconTwitter.svg";
-import {ReactComponent as IconPinterest} from "../images/IconPinterest.svg";
-import {ReactComponent as IconInstagram} from "../images/IconInstagram.svg";
+import  Logo  from "../images/Logo.svg";
+import IconFacebook from "../images/IconFacebook.svg";
+import IconTwitter from "../images/IconTwitter.svg";
+import IconPinterest from "../images/IconPinterest.svg";
+import IconInstagram from "../images/IconInstagram.svg";
 
 export function Footer(props) {
     return(
@@ -16,7 +16,7 @@ export function Footer(props) {
             </div>
             <div className="footer__second">
                 <div className="footer__logo">
-                    <Logo/>
+                    <img src={Logo} alt="Logo"></img>
                 </div>
                 <section className="footer__feature">
                     <h3>Features</h3>
@@ -65,16 +65,16 @@ export function Footer(props) {
                 </section>
                 <section className="footer_socialmedia">
                     <div className="icon">
-                    <IconFacebook/>
+                        <img src={IconFacebook} alt="Facebook"></img>
                     </div>
                     <div className="icon">
-                    <IconTwitter/>
+                        <img src={IconTwitter} alt="Facebook"></img>
                     </div>
                     <div className="icon">
-                    <IconPinterest/>
+                        <img src={IconPinterest} alt="Facebook"></img>
                     </div>
                     <div className="icon">
-                    <IconInstagram/>
+                        <img src={IconInstagram} alt="Facebook"></img>
                     </div>
                 </section>
             </div>
