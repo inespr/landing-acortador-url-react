@@ -1,18 +1,18 @@
-import { ButtonDecoration } from "./ButtonDecoration";
 import  Logo  from "../images/Logo.svg";
 import IconFacebook from "../images/IconFacebook.svg";
 import IconTwitter from "../images/IconTwitter.svg";
 import IconPinterest from "../images/IconPinterest.svg";
 import IconInstagram from "../images/IconInstagram.svg";
+import { Button } from "./Button";
 
-export function Footer(props) {
+export function Footer() {
     return(
         <>
             <div className="footer__first">
                 <p className="footerfirst__title">
                     Boost your links today
                 </p>
-                <ButtonDecoration text='Get Started'/>
+                <Button text='Get Started' value='GetStarted' type='button' className='button--decoration'/>
             </div>
             <div className="footer__second">
                 <div className="footer__logo">
@@ -71,7 +71,7 @@ export function Footer(props) {
                         <img src={IconTwitter} alt="Facebook"/>
                     </div>
                     <div className="icon">
-                       <img src={IconPinterest} alt="Facebook"/>
+                        <img src={IconPinterest} alt="Facebook"/>
                     </div>
                     <div className="icon">
                         <img src={IconInstagram} alt="Facebook"/>

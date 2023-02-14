@@ -1,4 +1,4 @@
-import { ButtonDecoration } from "./ButtonDecoration";
+import { Button } from "./Button";
 
 export function Nav(props) {
     return (
@@ -11,7 +11,7 @@ export function Nav(props) {
         </div>
         <div className='second--nav'>
             <a>Login</a>
-            <ButtonDecoration text='Sign Up'/>
+            <Button value='signup' type='button' className='button--decoration' text='Sign Up'/>
         </div>
     </div>
     )

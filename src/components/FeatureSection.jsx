@@ -3,7 +3,7 @@ import iconBrandRecognition from "../images/iconBrandRecognition.svg";
 import iconDetailedRecords from "../images/iconDetailedRecords.svg";
 import iconFullyCustomizable from "../images/iconFullyCustomizable.svg";
 
-export function FeatureSection(props) {
+export function FeatureSection() {
     return (
         <div className="statistics__header">
             <p className="statistics__title">Advanced Statistics</p>

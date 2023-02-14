@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "./components/Header";
 import { SendForm } from "./components/SendForm";
-import { PromoCard } from "./components/PromoCard";
 import { Footer } from "./components/Footer";
 import {MemoSearch} from "./components/MemoSearch";
 import { FeatureSection } from "./components/FeatureSection";
