@@ -3,32 +3,46 @@ import { Button } from "./Button";
 import { MemoSearch } from "./MemoSearch";
 
 export function SendForm(props) {
-    const [url, setUrl] = useState("");
-    const [datosURL, setDatosURL] = useState({});
-    // const [datosLS, setDatosLS] = useState("");
-    let info = [];
-    //funcion manegar localstorage
-    //comprobacion datos?.url
-    function localStorageSave(){
-        var json = {...info} 
-        localStorage.setItem('Info: ', JSON.stringify(json))
+    const [info, setInfo] = useState([]);
+    
+    function getLocalStorage(){
+        const localStorageInfo = JSON.parse(localStorage.getItem("Info"));
+        if(localStorageInfo){
+            setInfo(localStorageInfo);
+        }
     }
 
-    function localStorageGet(){
-        let datosLS  = JSON.parse(localStorage.getItem("Info"));
-        console.log('Datos en LS:', datosLS)
+    function guardarDatos(datos){
+        const urlInfo = {
+            'short':  datos.result?.full_short_link,
+            'original':  datos.result?.original_link
+        }
+        //Guardo cada objeto en un array
+        info.push(urlInfo);
+        console.log('Array Info:', info);
+        //Subo el array a localStorage
+        localStorage.setItem('Info', JSON.stringify(info))
     }
 
-    function shortenURL(evento) {
+    function callApi(evento){
         evento.preventDefault();
-        setUrl(evento.target.url.value);
-        if(validarURL(url) && url){
-            
-            info.push(datosURL?.result?.full_short_link, url);
-            console.log('Array: ', info)
-            localStorageSave();
-            localStorageGet()
-        }//añadir mensaje de error
+        console.log(evento.target.url.value)
+        if( validarURL(evento.target.url.value) === true ){
+            const url = evento.target.url.value;
+            console.log('url:', url);
+            //llamo a la api
+            fetch(`https://api.shrtco.de/v2/shorten?url=${url}`)
+                .then(res => res.json())
+                //obtengo los datos
+                .then(datos => {
+                    console.log('Datos URL: ', datos);
+                    //Guardo los datos que me interesan en un objeto
+                    guardarDatos(datos)
+                })  
+
+        }else{
+            console.log('introduce una url valida')
+        }
     }
 
     function validarURL(url) {
@@ -41,23 +55,14 @@ export function SendForm(props) {
         }
     }
 
-    useEffect(() => {
-        if(validarURL(url) == true ){
-            console.log('url:', url);
-            fetch(`https://api.shrtco.de/v2/shorten?url=${url}`)
-            .then(res => res.json())
-            .then(datos => {
-                setDatosURL(datos)
-                console.log('Datos URL: ', datos);
-            })
-        }
-    },[url])
-
+    useEffect(()=>{
+        getLocalStorage()
+    },[])
 
     return(
         <>
             <section className="sendform" id="sendform">
-                <form onSubmit={shortenURL}>
+                <form onSubmit={callApi}>
                     <input type='url' id='url' placeholder='Shorten a link here...' ></input>
                     <Button text='Shorten It!' value='shorten' type='onSubmit' className='button--action' />
                 </form>
