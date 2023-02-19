@@ -48,7 +48,28 @@ body{
     &:active{
         background-color: $primaryCyanT;
     }
+    
 }
+
+.buttoncopy{
+    background-color: $primaryCyan;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 32px;
+    font-weight: 700;
+    &--copied{
+        background-color: $primaryViolet;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-weight: 700;
+    }
+   
+}
+
+
 
 a{
     font-weight: 700;
@@ -87,7 +108,7 @@ a{
     margin: 0 auto;
     max-width: 1110px;
     padding-top: 40px;
-    padding-bottom: 180px;
+    padding-bottom: 200px;
 }
 
 .header{
@@ -128,7 +149,7 @@ a{
 }
 
 .sectionform__wrapper{
-    background: linear-gradient( white 50%, $whitegray 50% );
+    background-color: $whitegray;
 }
 
 .sectionform{
@@ -139,12 +160,34 @@ a{
     justify-content: center;
 }
 
-.memoformsearch{
+.memosearch__wrapper{
+    background-color: $whitegray;
+}
+
+.memoSearch{
     margin: 0 auto;
     max-width: 1110px;
     display: flex;
-    justify-content: center;
-    background-color: #f0f1f6;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin-top: 20px;
+    gap: 40px;
+    border-radius: 5px;
+    padding: 20px;
+    align-items: center;
+    .url{
+        color: $DarkViolet;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .memoSearch__info{
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+        gap: 30px;
+    }
 }
 
 .sendform{
@@ -156,11 +199,14 @@ a{
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -70px;
+    margin-bottom: -55px;
     form{
         display: flex;
         gap: 20px;
     }
-    input{
+    .input{
         border-radius: 10px;
         border: none;
         width: 700px;
@@ -168,6 +214,9 @@ a{
         padding-left: 20px;
         &::placeholder{
             color: $gray;
+        }
+        &--error{
+            border: red;
         }
     }
     .button--action{
@@ -269,7 +318,6 @@ a{
 .sectionfooter__wrapper{
     background-color: $whitegray;
     margin: 0 auto;
-    max-width: 1440px;   
     display: flex;
     justify-content: center;
 }
@@ -278,7 +326,6 @@ a{
     display: flex;
     padding-left: 0px;
     flex-direction: column;
-    width: max-content;
 
 }
 
@@ -301,13 +348,20 @@ a{
     letter-spacing: -2px;
     font-size: 40px;
 }
+
+.footer__second__wrapper{
+    background-color: $DarkViolet;
+
+}
+
 .footer__second{
+    margin: 0 auto;
+    max-width: 1110px;
     display: flex;
     flex-direction: row;
-    background-color: $DarkViolet;
     height: 250px;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-content: center;
     h3{

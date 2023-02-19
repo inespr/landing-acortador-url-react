@@ -1,17 +1,43 @@
-import { Button } from "./Button";
+export function MemoSearch({originalLink, shortLink}) {
+    
+    const resetButton  = () => {
+        document.querySelectorAll('.buttoncopy--copied').forEach(buttoncopy => {
+            buttoncopy.innerText = 'Copy';
+            buttoncopy.classList.replace('buttoncopy--copied', 'buttoncopy')
+        })
+    }
 
-export function MemoSearch(props) {
+    const CopyButtonDataandChange = (event) => {
+        navigator.clipboard.writeText(event.target.dataset.copy);
+        resetButton();
+        event.target.innerText = 'Copied!';
+        event.target.className = 'buttoncopy--copied';
+    }
+    
+
+    
+    // Cambiar active/no active si se clica el botón
+
     return(
-        <div className="memoSearch">
+        <section className="memosearch__wrapper">
+            <section className="memoSearch">
             <p className="url">
-            https://pgt-hiberus.notion.site/Pr-3-Landing-acortador-URLs-8d4d1d21071e420a8c7a152ac709661f
+                {originalLink}
             </p>
-            <div className="">
+            <div className="memoSearch__info">
                 <p className="urlShort">
-
+                    {shortLink}
                 </p>
-                <Button value='copy' type='submit' className='button--action' text="Copy"/>
+                <button 
+                data-copy={shortLink}
+                onClick={event => CopyButtonDataandChange(event)}
+                type='button' 
+                className='buttoncopy' 
+                >Copy
+                </button>
             </div>
-        </div>
+        </section>
+        </section>
+        
     )
 }

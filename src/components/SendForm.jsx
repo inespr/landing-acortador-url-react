@@ -2,75 +2,108 @@ import { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { MemoSearch } from "./MemoSearch";
 
-export function SendForm(props) {
-    const [info, setInfo] = useState([]);
-    
-    function getLocalStorage(){
-        const localStorageInfo = JSON.parse(localStorage.getItem("Info"));
-        if(localStorageInfo){
-            setInfo(localStorageInfo);
-        }
+export function SendForm() {
+  const [info, setInfo] = useState([]);
+
+  const inputError  = () => {
+    document.querySelector(input => {
+        input.classList.replace('input', 'input--error')
+    })
+  }
+
+  function getLocalStorage() {
+    const localStorageInfo = JSON.parse(localStorage.getItem("Info"));
+    if (localStorageInfo != null) {
+      setInfo(localStorageInfo);
+    }
+  }
+
+  function saveData(data) {
+
+    if(!data.result) {
+        return
     }
 
-    function guardarDatos(datos){
-        const urlInfo = {
-            'short':  datos.result?.full_short_link,
-            'original':  datos.result?.original_link
-        }
-        //Guardo cada objeto en un array
-        info.push(urlInfo);
-        console.log('Array Info:', info);
-        //Subo el array a localStorage
-        localStorage.setItem('Info', JSON.stringify(info))
+    const urlInfo = {
+      shortLink: data.result?.full_short_link,
+      originalLink: data.result?.original_link,
+    };
+
+    // Recuperar localStorageInfo
+    let localStorageInfo = JSON.parse(localStorage.getItem("Info")) || [];
+
+    // Hacer un push con mi nuevo objeto
+    localStorageInfo.push(urlInfo);
+    // Seteo estado, seteo LocalStorages
+    localStorage.setItem("Info", JSON.stringify(localStorageInfo));
+    setInfo(localStorageInfo);
+  }
+
+  function callApi(event) {
+    event.preventDefault();
+    const url = event.target.url.value;
+    console.log(url);
+    if (validateURL(url) === true && url) {
+      console.log("url:", url);
+      //call api
+      fetch(`https://api.shrtco.de/v2/shorten?url=${url}`)
+        .then((res) => res.json())
+        //get data
+        .then((data) => {
+          console.log("Data URL: ", data);
+          //save data into an objet
+          saveData(data);
+        });
+    } else {
+      inputError()
     }
+    event.target.reset();
+  }
 
-    function callApi(evento){
-        evento.preventDefault();
-        console.log(evento.target.url.value)
-        if( validarURL(evento.target.url.value) === true ){
-            const url = evento.target.url.value;
-            console.log('url:', url);
-            //llamo a la api
-            fetch(`https://api.shrtco.de/v2/shorten?url=${url}`)
-                .then(res => res.json())
-                //obtengo los datos
-                .then(datos => {
-                    console.log('Datos URL: ', datos);
-                    //Guardo los datos que me interesan en un objeto
-                    guardarDatos(datos)
-                })  
-
-        }else{
-            console.log('introduce una url valida')
-        }
+  function validateURL(url) {
+    try {
+      new URL(url);
+      return true;
+    } catch (error) {
+        
+      return false;
     }
+  }
 
-    function validarURL(url) {
-        try {
-            new URL(url);
-            return true
-        } catch (error){
-            //añadir mensaje de error
-            return false;
-        }
-    }
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
 
-    useEffect(()=>{
-        getLocalStorage()
-    },[])
-
-    return(
-        <>
-            <section className="sendform" id="sendform">
-                <form onSubmit={callApi}>
-                    <input type='url' id='url' placeholder='Shorten a link here...' ></input>
-                    <Button text='Shorten It!' value='shorten' type='onSubmit' className='button--action' />
-                </form>
-            </section>
-            <section className="memosearchs">
-                {/* <MemoSearch/> */}
-            </section>
-        </>
-
-    )
+  return (
+    <>
+      <section className="sendform" id="sendform">
+        <form onSubmit={callApi}>
+          <input
+            className="input"
+            type="url"
+            id="url"
+            placeholder="Shorten a link here..."
+          ></input>
+          <Button
+            text="Shorten It!"
+            value="shorten"
+            type="onSubmit"
+            className="button--action"
+          />
+        </form>
+      </section>
+      <section className="memosearch__wrapper">
+        {info &&
+          info.map((element, index) => {
+            return (
+              <MemoSearch
+                key={index}
+                originalLink={element.originalLink}
+                shortLink={element.shortLink}
+              />
+            );
+          })}
+      </section>
+    </>
+  );
 }
