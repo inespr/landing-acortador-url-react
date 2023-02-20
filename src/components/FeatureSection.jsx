@@ -4,7 +4,22 @@ import iconDetailedRecords from "../images/iconDetailedRecords.svg";
 import iconFullyCustomizable from "../images/iconFullyCustomizable.svg";
 
 export function FeatureSection() {
-  // constante con los textos
+  const tittle = [
+    "Brand Recognition",
+    "Detailed Records",
+    "Fully Customizable",
+  ];
+  const text = [
+    "Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content.",
+    "Gain insights into who is clicking your links. Knowing when and where people engage with yout content helps inform better decisions.",
+    "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement.",
+  ];
+
+  const img = [
+    iconBrandRecognition,
+    iconDetailedRecords,
+    iconFullyCustomizable,
+  ];
 
   return (
     <div className="statistics__header">
@@ -17,21 +32,9 @@ export function FeatureSection() {
       </section>
 
       <div className="statistics__cards">
-        <PromoCard
-          img={iconBrandRecognition}
-          title="Brand Recognition"
-          text="Boost your brand recognition with each click. Generic links don't mean a thing. Branded links help instil confidence in your content."
-        />
-        <PromoCard
-          img={iconDetailedRecords}
-          title="Detailed Records"
-          text="Gain insights into who is clicking your links. Knowing when and where people engage with yout content helps inform better decisions."
-        />
-        <PromoCard
-          img={iconFullyCustomizable}
-          title="Fully Customizable"
-          text="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
-        />
+        <PromoCard img={img[0]} title={tittle[0]} text={text[0]} />
+        <PromoCard img={img[1]} title={tittle[1]} text={text[1]} />
+        <PromoCard img={img[2]} title={tittle[2]} text={text[2]} />
       </div>
     </div>
   );
