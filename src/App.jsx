@@ -17,9 +17,8 @@ function App() {
         <div className="sectionform">
           <SendForm/>
         </div>
-        <div className="memoformsearch">
-        </div>
       </section>
+
       <section className="sectionstatistics__wrapper">
         <div className="sectionstatistics">
           <FeatureSection/>
