@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useDeferredValue } from "react";
 import { Button } from "./Button";
 import { MemoSearch } from "./MemoSearch";
 
 export function SendForm() {
   const [info, setInfo] = useState([]);
 
-  const inputError  = () => {
-    document.querySelector(input => {
-        input.classList.replace('input', 'input--error')
-    })
-  }
+  const inputError = () => {
+    const inputURL = document.getElementById("url");
+    inputURL.classList.replace("input", "input--error");
+    document.getElementById('massageError').classList.replace('inputError--none','inputError');
+  };
 
   function getLocalStorage() {
     const localStorageInfo = JSON.parse(localStorage.getItem("Info"));
@@ -19,9 +19,8 @@ export function SendForm() {
   }
 
   function saveData(data) {
-
-    if(!data.result) {
-        return
+    if (!data.result) {
+      return;
     }
 
     const urlInfo = {
@@ -44,6 +43,8 @@ export function SendForm() {
     const url = event.target.url.value;
     console.log(url);
     if (validateURL(url) === true && url) {
+      document.getElementById('massageError').classList.replace('inputError','inputError--none');
+      document.getElementById('url').classList.replace('input--error','input');
       console.log("url:", url);
       //call api
       fetch(`https://api.shrtco.de/v2/shorten?url=${url}`)
@@ -55,7 +56,7 @@ export function SendForm() {
           saveData(data);
         });
     } else {
-      inputError()
+      inputError();
     }
     event.target.reset();
   }
@@ -65,7 +66,7 @@ export function SendForm() {
       new URL(url);
       return true;
     } catch (error) {
-        
+      inputError();
       return false;
     }
   }
@@ -73,6 +74,7 @@ export function SendForm() {
   useEffect(() => {
     getLocalStorage();
   }, []);
+
 
   return (
     <>
@@ -84,13 +86,16 @@ export function SendForm() {
             id="url"
             placeholder="Shorten a link here..."
           ></input>
+
           <Button
             text="Shorten It!"
             value="shorten"
             type="onSubmit"
             className="button--action"
           />
+         
         </form>
+        <div className="inputError--none" id="massageError">Please add a link</div>
       </section>
       <section className="memosearch__wrapper">
         {info &&
