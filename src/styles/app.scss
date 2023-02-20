@@ -82,7 +82,16 @@ a{
 .nav{
     display: flex;
     flex-direction: row;
+}
+
+.hamburgerNav{
+    display: none;
+}
+
+.toggleMenuDiv{
+    display: flex;
     justify-content: space-between;
+    width: 80%;
 }
 
 .first--nav{
@@ -205,7 +214,7 @@ a{
     margin-bottom: -55px;
     form{
         display: flex;
-        gap: 20px;
+        gap: 12px;
         .input{
             border-radius: 10px;
             width: 700px;
@@ -253,9 +262,16 @@ a{
     max-width: 1110px;
     padding-bottom: 80px;
 }
+.statistics__text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .statistics__title{
     display: flex;
+    text-align: center;
     color: $DarkViolet;
     font-weight: 900;
     letter-spacing: -2px;
@@ -268,6 +284,8 @@ a{
 .statistics__description{
     display: flex;
     justify-content: center;
+    width: 70%;
+    text-align: center;
 }
 
 .statistics__cards{
@@ -410,12 +428,31 @@ a{
     }
 }
 
+.showFirst{
+    display: block;
+}
+.logo{
+    width: 20%;
+}
+
+.toggleMenuDivfalse{
+    display: flex;
+    width: 100%;
+}
+
+.toggleMenuShow{
+    
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
 @media screen and (max-width: 1220px){
 
     .header{
         flex-direction: column-reverse;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 45px;
  
         .image--header svg {
             position: inherit;
@@ -446,8 +483,8 @@ a{
            text-align: center;
         }
     }
-    .sendform form .input{
-        width: 550px;
+    .sendform form .input, .input--error{
+        max-width: 550px;
     }
 
     .sectionheader, .sectionform,  .sectionstatistics{
@@ -457,8 +494,8 @@ a{
 
 @media screen and (max-width: 950px){
 
-    .sendform form .input{
-        width: 450px;
+    .sendform form .input, .inputError{
+        max-width: 450px;
     }
 
     .sectionheader, .sectionform,  .sectionstatistics, .sendform{
@@ -468,18 +505,28 @@ a{
 
 @media screen and (max-width: 800px){
 
-    .sendform form .input{
-        width: 350px;
+    .header{
+        margin-top: 327px;
+    }
+
+    .nav{
+        margin-bottom: -305px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sendform form .input, .input--error{
+        max-width: 350px;
     }
 
     .sectionheader, .sectionform,  .sectionstatistics, .sendform{
-        max-width: 650px;
+        max-width: 550px;
    
     }
 
     .header .image--header svg {
         position: absolute;
-        right: -73px;
+        left: 130px;
         top: 99px;
     }
 
@@ -488,13 +535,69 @@ a{
         margin-top: 504px;
     }
 
-    .first, .second--nav{
+    .toggleMenudiv__wrapper{
+       width: 100%;
+
+    }
+
+    .logo{
+        width: 100%;
+    }
+ 
+    .toggleMenuDiv{
         position: fixed;
+        transform: translateY(-100%);
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        transform: translateX(100vw);
+        z-index: 99;
+   
+        &false{
+            
+            .first--nav{
+                display: flex;
+                flex-direction: column;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    height: 2px;
+                    width: 345px;
+                    background-color: gray;
+                    top: 233px;
+                }
+               
+            }
+            .second--nav{
+                display: flex;
+                flex-direction: column;
+                
+            }
+        
+            border-radius: 15px;
+            flex-direction: column;
+            position: absolute;
+            top: 100px;
+            background-color: $primaryViolet;
+            justify-content: center;
+            padding: 60px;
+            width: 90%;
+            gap: 60px;
+            a{
+                color: white;
+                font-weight: 500;
+            }
+           
+        }
+
+    }
+    .header .image--header svg {
+        position: inherit;
+        margin-left: 220px;
+    }
+
+    .header .text--header{
+        margin-top: 100px;
     }
 
     .statistics__cards{
@@ -509,20 +612,83 @@ a{
                     height: 31px;
                     width: 10px;
                     background-color: $primaryCyan;
-                    left: 0px;
+                    left: 271px;
                 } 
             } &:nth-child(2){
                 top: 40px;
                 &::before{
-                    top: 120px;
+                    top: -70px;
                 } 
             }
             &:nth-child(3){
                 top: 80px;
                 &::before{
-                    top: 80px;
+                    top: -70px;
                 } 
             }
         }
     }
+    .hamburgerNav{
+        display: flex;
+        align-items: flex-start;
+    }
+    .memoSearch{
+        display: flex;
+        flex-direction: column;
+        .memoSearch__info{
+            flex-direction: column;
+            width: 100%;
+            align-items: stretch;
+        }
+        .url{
+            width: 100%;
+            border-bottom: 1px solid $whitegray;
+            padding-bottom: 14px;
+           
+        }
+        .urlShort{
+            margin-top: -21px;
+           
+        }
+    }
+    
+    
+}
+
+@media screen and (max-width: 600px){
+    .header .image--header svg {
+        position: inherit;
+        margin-left: 341px;
+    }
+    .sectionheader, .sectionform,  .sectionstatistics, .sendform{
+        max-width: 450px;
+   
+    }
+    .sendform form .input, .input--error{
+        max-width: 250px;
+    }
+    .statistics__cards .card:not(:nth-child(1))::before {
+        left: 219px;
+    }
+   
+
+}
+
+@media screen and (max-width: 500px){
+    .sectionheader, .sectionform,  .sectionstatistics, .sendform{
+        max-width: 350px;
+   
+    }
+    .sendform form .input, .input--error{
+        max-width: 250px;
+        padding: 10px;
+    }
+    form{
+        flex-direction: column;
+        gap: 12px;
+    }
+    .statistics__cards .card:not(:nth-child(1))::before {
+        left: 171px;
+    }
+
 }
