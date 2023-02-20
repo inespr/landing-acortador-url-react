@@ -17,7 +17,6 @@ $whitegray: #f0f1f6;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     color: $grayisViolet;
-    
 }
 
 
@@ -49,7 +48,28 @@ body{
     &:active{
         background-color: $primaryCyanT;
     }
+    
 }
+
+.buttoncopy{
+    background-color: $primaryCyan;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 32px;
+    font-weight: 700;
+    &--copied{
+        background-color: $primaryViolet;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-weight: 700;
+    }
+   
+}
+
+
 
 a{
     font-weight: 700;
@@ -62,7 +82,16 @@ a{
 .nav{
     display: flex;
     flex-direction: row;
+}
+
+.hamburgerNav{
+    display: none;
+}
+
+.toggleMenuDiv{
+    display: flex;
     justify-content: space-between;
+    width: 80%;
 }
 
 .first--nav{
@@ -86,8 +115,9 @@ a{
 
 .sectionheader{
     margin: 0 auto;
-    max-width: 1440px;
-    padding: 40px 130px 140px 130px;
+    max-width: 1110px;
+    padding-top: 40px;
+    padding-bottom: 200px;
 }
 
 .header{
@@ -95,12 +125,13 @@ a{
     margin-top: 160px;
     background-color: white;
 
+
     .image--header{
         flex: 2 2 8%;
         
         svg{
             position: absolute;
-            right: -89px;
+            right: -73px;
             top: 151px;
         }
     }
@@ -127,41 +158,96 @@ a{
 }
 
 .sectionform__wrapper{
-    background: linear-gradient( white 50%, $whitegray 50% );
+    background-color: $whitegray;
 }
 
 .sectionform{
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1110px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.memosearch__wrapper{
+    background-color: $whitegray;
+}
+
+.memoSearch{
+    margin: 0 auto;
+    max-width: 1110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin-top: 20px;
+    gap: 40px;
+    border-radius: 5px;
+    padding: 20px;
+    align-items: center;
+    .url{
+        color: $DarkViolet;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .memoSearch__info{
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+        gap: 30px;
+    }
 }
 
 .sendform{
     display: flex;
+    flex-direction: column;
     background-color: $primaryViolet;
     background-image: url('../images/bg-shorten-desktop.svg');
-    width: 1010px;
+    max-width: 1110px;
     height: 140px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -70px;
+    margin-bottom: -55px;
     form{
         display: flex;
-        gap: 20px;
-    }
-    input{
-        border-radius: 10px;
-        border: none;
-        width: 700px;
-        color: $DarkViolet;
-        padding-left: 20px;
-        &::placeholder{
-            color: $gray;
+        gap: 12px;
+        .input{
+            border-radius: 10px;
+            width: 700px;
+            color: $DarkViolet;
+            padding-left: 20px;
+            &::placeholder{
+                color: $gray;
+            }
+            &--error{
+                padding-left: 20px;
+                border-radius: 10px;
+    
+                width: 700px;
+                &::placeholder{color: red;}
+                color: red;
+                border: 2px solid red;
+    
+            }
         }
+        
     }
     .button--action{
         font-size: 22px;
+    }
+    .inputError{
+        position: absolute;
+        top: 100px;
+        left: 120px;
+        color: red;
+        font-weight: 500;
+    }
+    .inputError--none{
+        display:none;
     }
     
 }
@@ -173,12 +259,19 @@ a{
 
 .sectionstatistics{
     margin: 0 auto;
-    max-width: 1440px;
-    padding: 40px 130px 40px 130px;
+    max-width: 1110px;
+    padding-bottom: 80px;
 }
+.statistics__text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .statistics__title{
     display: flex;
+    text-align: center;
     color: $DarkViolet;
     font-weight: 900;
     letter-spacing: -2px;
@@ -191,6 +284,8 @@ a{
 .statistics__description{
     display: flex;
     justify-content: center;
+    width: 70%;
+    text-align: center;
 }
 
 .statistics__cards{
@@ -201,45 +296,39 @@ a{
    
 }
 
-
 .card{
     display: flex;
+    position: relative;
     background-color: white;
     flex-direction: column;
+    height: 100%;
     align-items: flex-start;
     border-radius: 5px;
     padding: 0px 31px 31px 31px;
-    &:nth-child(2){
-        position: relative;
+    &:not(:nth-child(1)){
+        &::before{
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 31px;
+            background-color: $primaryCyan;
+            left: -31px;
+        } 
+    } &:nth-child(2){
         top: 40px;
         &::before{
-            content: '';
-            position: absolute;
-            height: 10px;
-            width: 31px;
             top: 120px;
-            background-color: $primaryCyan;
-            right: 384px;
         } 
-   
     }
     &:nth-child(3){
-        position: relative;
         top: 80px;
         &::before{
-            content: '';
-            position: absolute;
-            height: 10px;
-            width: 31px;
-            background-color: $primaryCyan;
             top: 80px;
-            right: 356px;
         } 
     }
     
 }
 
-  
 
 .card__title{
     color: $DarkViolet;
@@ -265,20 +354,19 @@ a{
 .sectionfooter__wrapper{
     background-color: $whitegray;
     margin: 0 auto;
-    max-width: 1440px;   
+    display: flex;
+    justify-content: center;
 }
 
 .sectionfooter{
     display: flex;
     padding-left: 0px;
     flex-direction: column;
-    width: max-content;
 
 }
 
 .footer__first{
     background-image: url('../images/bg-boost-desktop.svg');
-    transform: scale(1.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -296,15 +384,20 @@ a{
     letter-spacing: -2px;
     font-size: 40px;
 }
+
+.footer__second__wrapper{
+    background-color: $DarkViolet;
+
+}
+
 .footer__second{
+    margin: 0 auto;
+    max-width: 1110px;
     display: flex;
     flex-direction: row;
-    background-color: $DarkViolet;
-    transform: scale(1.1);
-    width: 1440px;
     height: 250px;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-content: center;
     h3{
@@ -324,6 +417,278 @@ a{
         display: flex;
         flex-direction: row;
         gap: 20px;
+        align-items: center;
+    }
+
+}
+
+.icon{
+    &:active{
+        fill: $primaryCyan;
+    }
+}
+
+.showFirst{
+    display: block;
+}
+.logo{
+    width: 20%;
+}
+
+.toggleMenuDivfalse{
+    display: flex;
+    width: 100%;
+}
+
+.toggleMenuShow{
+    
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1220px){
+
+    .header{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-top: 45px;
+ 
+        .image--header svg {
+            position: inherit;
+        }
+        .text--header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+        }
+    }
+    .sectionheader, .sectionform,  .sectionstatistics{
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1152px){
+    .footer__second{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        section{
+           text-align: center;
+        }
+    }
+    .sendform form .input, .input--error{
+        max-width: 550px;
+    }
+
+    .sectionheader, .sectionform,  .sectionstatistics{
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width: 950px){
+
+    .sendform form .input, .inputError{
+        max-width: 450px;
+    }
+
+    .sectionheader, .sectionform,  .sectionstatistics, .sendform{
+        max-width: 750px;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    .header{
+        margin-top: 327px;
+    }
+
+    .nav{
+        margin-bottom: -305px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sendform form .input, .input--error{
+        max-width: 350px;
+    }
+
+    .sectionheader, .sectionform,  .sectionstatistics, .sendform{
+        max-width: 550px;
+   
+    }
+
+    .header .image--header svg {
+        position: absolute;
+        left: 130px;
+        top: 99px;
+    }
+
+    .header .text--header {
+        flex: 2 2 3%;
+        margin-top: 504px;
+    }
+
+    .toggleMenudiv__wrapper{
+       width: 100%;
+
+    }
+
+    .logo{
+        width: 100%;
+    }
+ 
+    .toggleMenuDiv{
+        position: fixed;
+        transform: translateY(-100%);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+   
+        &false{
+            
+            .first--nav{
+                display: flex;
+                flex-direction: column;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    height: 2px;
+                    width: 345px;
+                    background-color: gray;
+                    top: 233px;
+                }
+               
+            }
+            .second--nav{
+                display: flex;
+                flex-direction: column;
+                
+            }
+        
+            border-radius: 15px;
+            flex-direction: column;
+            position: absolute;
+            top: 100px;
+            background-color: $primaryViolet;
+            justify-content: center;
+            padding: 60px;
+            width: 90%;
+            gap: 60px;
+            a{
+                color: white;
+                font-weight: 500;
+            }
+           
+        }
+
+    }
+    .header .image--header svg {
+        position: inherit;
+        margin-left: 220px;
+    }
+
+    .header .text--header{
+        margin-top: 100px;
+    }
+
+    .statistics__cards{
+        display: flex;
+        flex-direction: column;
+        .card{
+            align-items: center;
+            &:not(:nth-child(1)){
+                &::before{
+                    content: '';
+                    position: absolute;
+                    height: 31px;
+                    width: 10px;
+                    background-color: $primaryCyan;
+                    left: 271px;
+                } 
+            } &:nth-child(2){
+                top: 40px;
+                &::before{
+                    top: -70px;
+                } 
+            }
+            &:nth-child(3){
+                top: 80px;
+                &::before{
+                    top: -70px;
+                } 
+            }
+        }
+    }
+    .hamburgerNav{
+        display: flex;
+        align-items: flex-start;
+    }
+    .memoSearch{
+        display: flex;
+        flex-direction: column;
+        .memoSearch__info{
+            flex-direction: column;
+            width: 100%;
+            align-items: stretch;
+        }
+        .url{
+            width: 100%;
+            border-bottom: 1px solid $whitegray;
+            padding-bottom: 14px;
+           
+        }
+        .urlShort{
+            margin-top: -21px;
+           
+        }
+    }
+    
+    
+}
+
+@media screen and (max-width: 600px){
+    .header .image--header svg {
+        position: inherit;
+        margin-left: 341px;
+    }
+    .sectionheader, .sectionform,  .sectionstatistics, .sendform{
+        max-width: 450px;
+   
+    }
+    .sendform form .input, .input--error{
+        max-width: 250px;
+    }
+    .statistics__cards .card:not(:nth-child(1))::before {
+        left: 219px;
+    }
+   
+
+}
+
+@media screen and (max-width: 500px){
+    .sectionheader, .sectionform,  .sectionstatistics, .sendform{
+        max-width: 350px;
+   
+    }
+    .sendform form .input, .input--error{
+        max-width: 250px;
+        padding: 10px;
+    }
+    form{
+        flex-direction: column;
+        gap: 12px;
+    }
+    .statistics__cards .card:not(:nth-child(1))::before {
+        left: 171px;
     }
 
 }
